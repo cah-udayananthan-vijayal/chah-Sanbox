@@ -1,0 +1,1 @@
+gcloud compute instances delete tomtest1 --project chah-sandbox-np-cah --quiet

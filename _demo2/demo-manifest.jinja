@@ -1,0 +1,24 @@
+# Please review https://confluence.cares.cardinalhealth.net:8443/display/AI/GCP+-+Working+with+VMs before modifying this file!
+resources:
+- name: {{ properties["hostName"] }}
+  type: management-cah/composite:cah-vm
+  properties:
+    name: {{ properties["hostName"] }}
+    projectId: {{ properties["projectId"] }}
+    serviceAccount: {{ properties["serviceAccount"] }} 
+    machineType: {{ properties["machineType"] }} 
+    sourceImage: cah-centos-7
+    zone: us-central1-a
+    environment: {{ properties["environment"] }}
+    lineOfBusiness: med
+    internetfacing: False
+    tags:
+    - internet-us-central1
+    labels:
+      autostart: weekdays-0700-edt
+      autostop: weekdays-1800-edt
+    disks:                     
+    - name: data                                                          
+      sizeGb: 5                                                         
+      diskType: pd-standard               #diskType options:pd-standard|pd-ssd                
+      autoDelete: True

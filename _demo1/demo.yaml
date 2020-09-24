@@ -1,0 +1,26 @@
+resources:
+- name: tomtest1                      #see below for naming conventions. Use lowercase only,
+  type: management-cah/composite:cah-vm
+  properties:
+    name: tomtest-1                    #Yes, the server name is duplicated here
+    projectId: chah-sandbox-np
+    serviceAccount: chah-sandbox-np-def   
+    machineType: e2-micro                 #Select appropriate machine type
+    sourceImage: cah-centos-7             
+    zone: us-central1-a
+    environment: nonprod
+    lineOfBusiness: med
+    internetfacing: False
+    labels:
+      autostart: weekdays-0700-edt         #See AutoStart and AutoStop instructions below
+      autostop: weekdays-1800-edt          #See AutoStart and AutoStop instructions below
+      apmid: 22549                          
+    tags:
+    - internet-us-central1
+    #metadata:                             #uncomment to use. 
+      #adgroups:p-group1;p-group2          #AD Groups with admin access. see section on Active Directory below.
+    disks:                                 #You must have at least one disk                    
+    - name: data                                                          
+      sizeGb: 50                                                         
+      diskType: pd-standard  #diskType options:pd-standard|pd-ssd                
+      autoDelete: True
