@@ -1,0 +1,24 @@
+resources:
+- name: tomtest2               
+  type: management-cah/composite:cah-vm
+  properties:
+    name: tomtest2              
+    projectId: chah-sandbox-np
+    serviceAccount: chah-sandbox-np-def   
+    machineType: e2-standard-2   
+    sourceImage: cah-windows-2016
+    zone: us-central1-a
+    environment: nonprod
+    lineOfBusiness: med
+    internetfacing: False
+    tags:
+    - internet-us-central1
+    labels:
+      autostart: weekdays-0700-edt
+      autostop: weekdays-1800-edt
+      apmid: 6010
+    disks:                     
+    - name: data                                                          
+      sizeGb: 50                                                         
+      diskType: pd-standard                
+      autoDelete: True

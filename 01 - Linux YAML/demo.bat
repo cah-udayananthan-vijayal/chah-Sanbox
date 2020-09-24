@@ -1,0 +1,1 @@
+gcloud deployment-manager deployments create tomstack4 --config demo.yaml --project chah-sandbox-np-cah
