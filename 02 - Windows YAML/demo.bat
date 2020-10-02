@@ -1,1 +1,2 @@
+REM Stack Name has to be globally unique. Change the stack name below every time this script is executed
 gcloud deployment-manager deployments create stack125 --config windows-manifest.yaml --project chah-sandbox-np-cah
